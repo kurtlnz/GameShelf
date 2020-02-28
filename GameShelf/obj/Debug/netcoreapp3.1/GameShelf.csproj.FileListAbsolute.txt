@@ -89,3 +89,5 @@
 /Users/kurt/RiderProjects/GameShelf/GameShelf/obj/Debug/netcoreapp3.1/GameShelf.pdb
 /Users/kurt/RiderProjects/GameShelf/GameShelf/obj/Debug/netcoreapp3.1/Razor/Views/BoardGame/Index.cshtml.g.cs
 /Users/kurt/RiderProjects/GameShelf/GameShelf/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_NavBar.cshtml.g.cs
+/Users/kurt/RiderProjects/GameShelf/GameShelf/bin/Debug/netcoreapp3.1/Npgsql.dll
+/Users/kurt/RiderProjects/GameShelf/GameShelf/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
