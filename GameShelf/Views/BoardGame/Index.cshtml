@@ -1,0 +1,14 @@
+@model GameShelf.ViewModels.BoardGameViewModel
+
+@{
+    ViewBag.Title = "Board Games";
+    Layout = "_Layout";
+}
+
+<h2>Board Games</h2>
+<ul>
+    @foreach (var game in Model.BoardGames)
+    {
+        <li>@game.Title</li>
+    }
+</ul>
