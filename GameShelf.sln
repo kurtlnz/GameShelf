@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf", "GameShelf\GameShelf.csproj", "{302D2685-348F-46E8-A32C-7EC34BD9E387}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.API", "GameShelf.API\GameShelf.API.csproj", "{4E78167B-B610-4033-9818-F5B2178B77A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{302D2685-348F-46E8-A32C-7EC34BD9E387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{302D2685-348F-46E8-A32C-7EC34BD9E387}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{302D2685-348F-46E8-A32C-7EC34BD9E387}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{302D2685-348F-46E8-A32C-7EC34BD9E387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E78167B-B610-4033-9818-F5B2178B77A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E78167B-B610-4033-9818-F5B2178B77A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E78167B-B610-4033-9818-F5B2178B77A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E78167B-B610-4033-9818-F5B2178B77A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
