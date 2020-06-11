@@ -9,13 +9,14 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="GameController.cs" t="Include" />
           <e p="WeatherForecastController.cs" t="Include" />
         </e>
         <e p="DataContext.cs" t="Include" />
         <e p="GameShelf.API.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20200528115808_InitialCreate.cs" t="Include" />
-          <e p="20200528115808_InitialCreate.Designer.cs" t="Include" />
+          <e p="20200602101705_Init.cs" t="Include" />
+          <e p="20200602101705_Init.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

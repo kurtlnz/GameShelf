@@ -3,12 +3,42 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$USER_HOME$/Projects/anex/ANEX.Domain/Services/Billing/Extensions/NextBillingDateExtensions.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/anex/ANEX.Website.ManagementPortal/Areas/Sale/ViewModels/SaleViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Projects/anex/ANEX.Website.ManagementPortal/Areas/Sale/Views/Home/Steps/_Contract.cshtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.idea/.idea.GameShelf/.idea/contentModel.xml">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Controllers/GameController.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/GameShelf.API/DataContext.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Migrations/20200602100254_Init.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Migrations/20200602101705_Init.cs">
           <value>
             <set />
           </value>
