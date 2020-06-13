@@ -4,5 +4,6 @@ namespace GameShelf.API.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Year { get; set; }
     }
 }

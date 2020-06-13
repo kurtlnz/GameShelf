@@ -14,16 +14,15 @@ namespace GameShelf.API
             Configuration = configuration;
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.UseSerialColumns();
-            modelBuilder.Entity<User>().ToTable("User");
-            modelBuilder.Entity<Game>().ToTable("Game");
-        }
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     modelBuilder.UseSerialColumns();
+        //     modelBuilder.Entity<User>().ToTable("User");
+        //     modelBuilder.Entity<Game>().ToTable("Game");
+        // }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseNpgsql(Configuration.GetConnectionString("(default)"), 
-                o => o.SetPostgresVersion(9, 6));
+            => optionsBuilder.UseNpgsql(Configuration.GetConnectionString("(default)"));
             
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
