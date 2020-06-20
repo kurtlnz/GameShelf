@@ -37,3 +37,5 @@
 /Users/kurt/RiderProjects/GameShelf/GameShelf.API/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
 /Users/kurt/RiderProjects/GameShelf/GameShelf.API/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/kurt/RiderProjects/GameShelf/GameShelf.API/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
+/Users/kurt/RiderProjects/GameShelf/GameShelf.API/bin/Debug/netcoreapp3.1/GameShelf.Domain.dll
+/Users/kurt/RiderProjects/GameShelf/GameShelf.API/bin/Debug/netcoreapp3.1/GameShelf.Domain.pdb

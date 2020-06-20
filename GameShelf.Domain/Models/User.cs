@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GameShelf.API.Models
+namespace GameShelf.Domain.Models
 {
     public class User
     {
@@ -9,6 +9,6 @@ namespace GameShelf.API.Models
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public List<Game> Games { get; set; }
+        public ICollection<UserGame> UserGames { get; set; }
     }
 }

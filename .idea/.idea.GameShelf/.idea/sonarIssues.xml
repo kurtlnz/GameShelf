@@ -33,6 +33,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/GameShelf.API.csproj">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/GameShelf.API/Migrations/20200602100254_Init.cs">
           <value>
             <set />
@@ -58,6 +63,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Properties/launchSettings.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Services/GameService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Services/IGameService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/GameShelf.API/Startup.cs">
           <value>
             <set />
@@ -69,6 +89,61 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/GameShelf.API/appsettings.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/obj/GameShelf.API.csproj.nuget.dgspec.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/DataContext.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/GameShelf.Domain.csproj">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Migrations/20200613000834_Init.Designer.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Migrations/20200613000834_Init.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Migrations/DataContextModelSnapshot.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Models/Game.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Models/User.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Models/UserGames.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/GameService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/IGameService.cs">
           <value>
             <set />
           </value>

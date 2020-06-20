@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace GameShelf.API.Migrations
+namespace GameShelf.Domain.Migrations
 {
     public partial class Init : Migration
     {

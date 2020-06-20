@@ -81,7 +81,7 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
         },
         "build": {
-          "build/netcoreapp2.0/_._": {}
+          "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/3.1.4": {
@@ -299,21 +299,6 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        }
-      },
-      "GameShelf.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "3.1.4",
-          "Microsoft.EntityFrameworkCore.Tools": "3.1.4",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.3"
-        },
-        "compile": {
-          "bin/placeholder/GameShelf.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GameShelf.Domain.dll": {}
         }
       }
     }
@@ -914,16 +899,13 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "GameShelf.Domain/1.0.0": {
-      "type": "project",
-      "path": "../GameShelf.Domain/GameShelf.Domain.csproj",
-      "msbuildProject": "../GameShelf.Domain/GameShelf.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "GameShelf.Domain >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Design >= 3.1.4",
+      "Microsoft.EntityFrameworkCore.Tools >= 3.1.4",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.3"
     ]
   },
   "packageFolders": {
@@ -933,11 +915,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kurt/RiderProjects/GameShelf/GameShelf.API/GameShelf.API.csproj",
-      "projectName": "GameShelf.API",
-      "projectPath": "/Users/kurt/RiderProjects/GameShelf/GameShelf.API/GameShelf.API.csproj",
+      "projectUniqueName": "/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/GameShelf.Domain.csproj",
+      "projectName": "GameShelf.Domain",
+      "projectPath": "/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/GameShelf.Domain.csproj",
       "packagesPath": "/Users/kurt/.nuget/packages/",
-      "outputPath": "/Users/kurt/RiderProjects/GameShelf/GameShelf.API/obj/",
+      "outputPath": "/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -953,11 +935,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/GameShelf.Domain.csproj": {
-              "projectPath": "/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/GameShelf.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -968,6 +946,20 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": {
+            "target": "Package",
+            "version": "[3.1.4, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "target": "Package",
+            "version": "[3.1.4, )"
+          },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[3.1.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -979,9 +971,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

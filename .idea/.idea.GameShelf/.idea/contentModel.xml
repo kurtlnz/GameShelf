@@ -9,19 +9,9 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="WeatherForecastController.cs" t="Include" />
+          <e p="GameController.cs" t="Include" />
         </e>
-        <e p="DataContext.cs" t="Include" />
         <e p="GameShelf.API.csproj" t="IncludeRecursive" />
-        <e p="Migrations" t="Include">
-          <e p="20200613000834_Init.cs" t="Include" />
-          <e p="20200613000834_Init.Designer.cs" t="Include" />
-          <e p="DataContextModelSnapshot.cs" t="Include" />
-        </e>
-        <e p="Models" t="Include">
-          <e p="Game.cs" t="Include" />
-          <e p="User.cs" t="Include" />
-        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -34,7 +24,34 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="WeatherForecast.cs" t="Include" />
+      </e>
+      <e p="GameShelf.Domain" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DataContext.cs" t="Include" />
+        <e p="GameShelf.Domain.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20200613000834_Init.cs" t="Include" />
+          <e p="20200613000834_Init.Designer.cs" t="Include" />
+          <e p="20200620020123_AddGameUsersRelationship.cs" t="Include" />
+          <e p="20200620020123_AddGameUsersRelationship.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Game.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserGames.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GameShelf.Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="GameService.cs" t="Include" />
+          <e p="IGameService.cs" t="Include" />
+        </e>
       </e>
       <e p="GameShelf.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
