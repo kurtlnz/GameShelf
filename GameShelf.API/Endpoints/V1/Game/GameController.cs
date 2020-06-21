@@ -51,11 +51,7 @@ namespace GameShelf.API.Endpoints.V1.Game
         {
             var (success, message) = await _gameService.DeleteGame(id);
 
-            return new V1Response()
-            {
-                Success = success,
-                Message = message
-            };
+            return new V1Response(success, message);
         }
 
         [HttpPost]
@@ -70,12 +66,8 @@ namespace GameShelf.API.Endpoints.V1.Game
             };
 
             var (success, message) = await _gameService.UpdateGame(dto);
-            
-            return new V1Response()
-            {
-                Success = success,
-                Message = message
-            };
+
+            return new V1Response(success, message);
         }
     }
 }
