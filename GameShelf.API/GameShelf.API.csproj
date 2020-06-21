@@ -8,5 +8,8 @@
       <ProjectReference Include="..\GameShelf.Domain\GameShelf.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
 
 </Project>

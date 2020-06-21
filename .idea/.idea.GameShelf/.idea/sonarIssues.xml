@@ -33,6 +33,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Endpoints/V1/Game/AddGameRequest.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Endpoints/V1/Game/CreateGameRequest.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Endpoints/V1/Game/GameController.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Endpoints/V1/Game/UpdateRequest.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.API/Endpoints/V1/V1Response.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/GameShelf.API/GameShelf.API.csproj">
           <value>
             <set />
@@ -134,6 +159,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/GameShelf.Domain/Models/UserGames.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/Game/DTO/CreateGame.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/Game/DTO/UpdateGame.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/Game/GameService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/Game/IGameService.cs">
           <value>
             <set />
           </value>

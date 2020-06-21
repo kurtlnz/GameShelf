@@ -8,8 +8,16 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Controllers" t="Include">
-          <e p="GameController.cs" t="Include" />
+        <e p="Controllers" t="Include" />
+        <e p="Endpoints" t="Include">
+          <e p="V1" t="Include">
+            <e p="Game" t="Include">
+              <e p="CreateRequest.cs" t="Include" />
+              <e p="GameController.cs" t="Include" />
+              <e p="UpdateRequest.cs" t="Include" />
+            </e>
+            <e p="V1Response.cs" t="Include" />
+          </e>
         </e>
         <e p="GameShelf.API.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -49,8 +57,14 @@
           </e>
         </e>
         <e p="Services" t="Include">
-          <e p="GameService.cs" t="Include" />
-          <e p="IGameService.cs" t="Include" />
+          <e p="Game" t="Include">
+            <e p="DTO" t="Include">
+              <e p="CreateGame.cs" t="Include" />
+              <e p="UpdateGame.cs" t="Include" />
+            </e>
+            <e p="GameService.cs" t="Include" />
+            <e p="IGameService.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="GameShelf.sln" t="IncludeFlat" />

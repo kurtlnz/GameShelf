@@ -1,5 +1,5 @@
 using GameShelf.Domain;
-using GameShelf.Domain.Services;
+using GameShelf.Domain.Services.Game;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

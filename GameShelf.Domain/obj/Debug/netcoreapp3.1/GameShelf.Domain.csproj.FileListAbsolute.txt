@@ -1,10 +1,10 @@
-/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.csprojAssemblyReference.cache
-/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.AssemblyInfoInputs.cache
-/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.AssemblyInfo.cs
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/bin/Debug/netcoreapp3.1/GameShelf.Domain.deps.json
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/bin/Debug/netcoreapp3.1/GameShelf.Domain.runtimeconfig.json
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/bin/Debug/netcoreapp3.1/GameShelf.Domain.runtimeconfig.dev.json
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/bin/Debug/netcoreapp3.1/GameShelf.Domain.dll
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/bin/Debug/netcoreapp3.1/GameShelf.Domain.pdb
+/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.csprojAssemblyReference.cache
+/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.AssemblyInfoInputs.cache
+/Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.AssemblyInfo.cs
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.dll
 /Users/kurt/RiderProjects/GameShelf/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.pdb
