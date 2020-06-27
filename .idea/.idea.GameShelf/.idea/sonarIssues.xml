@@ -18,6 +18,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.idea/.idea.GameShelf/.idea/contentModel.xml">
           <value>
             <set />
@@ -189,6 +194,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/GameShelf.Domain/Services/IGameService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/GameShelf.Domain/obj/Debug/netcoreapp3.1/GameShelf.Domain.AssemblyInfo.cs">
           <value>
             <set />
           </value>
