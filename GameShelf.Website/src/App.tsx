@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import GameTable from './GameTable';
 
 function App() {
+  const [games, setGames] = useState([
+    { title: "Settlers of Catan", year: 1997 },
+    { title: "Carcassonne", year: 2001 },
+    { title: "Splendor", year: 2014 },
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <GameTable />
     </div>
-  );
+  )
 }
 
 export default App;
