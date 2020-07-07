@@ -26,7 +26,7 @@ const rows = [
     createData("Splendor", 2014, 7.4)
 ]
 
-export default function GameTable() {
+export default function Games() {
     const classes = useStyles();
 
     return (
