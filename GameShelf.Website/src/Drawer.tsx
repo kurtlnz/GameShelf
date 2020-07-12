@@ -11,31 +11,42 @@ import {
     Toolbar,
     Typography
 } from '@material-ui/core'
+import {
+    makeStyles,
+    createStyles,
+    Theme
+}
+    from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/Info';
 import GamesIcon from '@material-ui/icons/Games';
 import PeopleIcon from '@material-ui/icons/People';
-import { makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = '200px';
 
-const useStyles = makeStyles({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        zIndex: 40 + 1
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-    },
-    drawerContainer: {
-        overflow: 'auto',
-    },
-})
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+        },
+        appBar: {
+            zIndex: theme.zIndex.drawer + 1
+        },
+        drawer: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+        drawerPaper: {
+            width: drawerWidth,
+        },
+        drawerContainer: {
+            overflow: 'auto',
+        },
+        content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+        },
+    })
+)
 
 const Drawer = () => {
     const history = useHistory();
@@ -65,7 +76,7 @@ const Drawer = () => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        Welcome to GameShelf
+                        Welcome to GameShelf!
                 </Typography>
                 </Toolbar>
             </AppBar>
