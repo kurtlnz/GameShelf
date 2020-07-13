@@ -25,9 +25,6 @@ const drawerWidth = '200px';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            display: 'flex',
-        },
         appBar: {
             zIndex: theme.zIndex.drawer + 1
         },
@@ -40,11 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         drawerContainer: {
             overflow: 'auto',
-        },
-        content: {
-            flexGrow: 1,
-            padding: theme.spacing(3),
-        },
+        }
     })
 )
 
@@ -71,7 +64,7 @@ const Drawer = () => {
     ];
 
     return (
-        <div className={classes.root}>
+        <>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
@@ -100,7 +93,7 @@ const Drawer = () => {
                     </List>
                 </div>
             </MUIDrawer>
-        </div >
+        </>
     )
 }
 
