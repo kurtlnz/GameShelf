@@ -1,5 +1,6 @@
 using GameShelf.Domain;
 using GameShelf.Domain.Services.Game;
+using GameShelf.Domain.Services.User;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace GameShelf.API
             services.AddMvc();
 
             services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IUserService, UserService>();
             
             services.AddDbContext<DataContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("(default)")));
         }

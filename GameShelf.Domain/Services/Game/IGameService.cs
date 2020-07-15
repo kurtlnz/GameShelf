@@ -7,27 +7,27 @@ namespace GameShelf.Domain.Services.Game
     public interface IGameService
     {
         /// <summary>
-        /// Add a new game entity to db
+        /// Add a new game
         /// </summary>
         /// <param name="game"></param>
         /// <returns></returns>
         Task CreateGame(CreateGame game);
         
         /// <summary>
-        /// Get list of all game entities in db
+        /// Get list of all games
         /// </summary>
         /// <returns></returns>
         Task<List<Models.Game>> GetGames();
         
         /// <summary>
-        /// Delete game entity from db by id
+        /// Delete game
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         Task<(bool Success, string Message)> DeleteGame(int id);
         
         /// <summary>
-        /// Update game entity data
+        /// Update game data
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
