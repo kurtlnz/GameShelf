@@ -7,7 +7,8 @@ namespace GameShelf.API.Endpoints.V1
             Success = success;
             Message = message;
         }
-        public bool Success { get; set; }
-        public string Message { get; set; }
+
+        private bool Success { get; set; }
+        private string Message { get; set; }
     }
 }
