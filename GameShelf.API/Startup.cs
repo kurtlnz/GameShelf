@@ -24,6 +24,9 @@ namespace GameShelf.API
         {
             services.AddControllers();
             services.AddMvc();
+            
+            // Register the Swagger services
+            services.AddSwaggerDocument();
 
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IUserService, UserService>();
@@ -46,6 +49,10 @@ namespace GameShelf.API
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }
