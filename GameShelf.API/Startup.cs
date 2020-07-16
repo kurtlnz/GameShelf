@@ -26,7 +26,21 @@ namespace GameShelf.API
             services.AddMvc();
             
             // Register the Swagger services
-            services.AddSwaggerDocument();
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "GameShelf API";
+                    document.Info.Description = "A simple ASP.NET Core web API";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Kurt Lim",
+                        Email = "klim049@gamil.com",
+                        Url = "https://github.com/kurtlnz"
+                    };
+                };
+            });
 
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IUserService, UserService>();
