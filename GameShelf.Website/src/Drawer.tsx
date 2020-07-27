@@ -20,6 +20,7 @@ import {
 import InfoIcon from '@material-ui/icons/Info';
 import GamesIcon from '@material-ui/icons/Games';
 import PeopleIcon from '@material-ui/icons/People';
+import HomeIcon from '@material-ui/icons/Home';
 
 const drawerWidth = '200px';
 
@@ -46,6 +47,12 @@ const Drawer = () => {
     const classes = useStyles();
     const itemList = [
         {
+            text: 'Home',
+            icon: <HomeIcon />,
+            onClick: () => history.push('/')
+
+        },
+        {
             text: 'About',
             icon: <InfoIcon />,
             onClick: () => history.push('/about')
@@ -66,7 +73,7 @@ const Drawer = () => {
     return (
         <>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar title="John" position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
                         Welcome to GameShelf!

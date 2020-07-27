@@ -12,7 +12,7 @@ import {
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 1000,
     },
 });
 
@@ -26,7 +26,7 @@ const rows = [
     createData("Splendor", 2014, 7.4)
 ]
 
-export default function Games() {
+const Games = () => {
     const classes = useStyles();
 
     return (
@@ -52,3 +52,5 @@ export default function Games() {
         </TableContainer>
     )
 };
+
+export default Games;
