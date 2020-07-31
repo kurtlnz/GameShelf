@@ -11,26 +11,26 @@ namespace GameShelf.Domain.Services.Game
         /// </summary>
         /// <param name="game"></param>
         /// <returns></returns>
-        Task CreateGame(CreateGame game);
+        Task CreateGameAsync(CreateGame game);
         
         /// <summary>
         /// Get list of all games
         /// </summary>
         /// <returns></returns>
-        Task<List<Models.Game>> GetGames();
+        Task<List<Models.Game>> GetGamesAsync();
         
         /// <summary>
         /// Delete game
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<(bool Success, string Message)> DeleteGame(int id);
+        Task<(bool Success, string Message)> DeleteGameAsync(int id);
         
         /// <summary>
         /// Update game data
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        Task<(bool Success, string Message)> UpdateGame(UpdateGame dto);
+        Task<(bool Success, string Message)> UpdateGameAsync(UpdateGame dto);
     }
 }

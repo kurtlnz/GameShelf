@@ -24,6 +24,7 @@ namespace GameShelf.API.Endpoints.V1.Game
         
         [HttpPost]
         [Route("CreateGame")]
+        [ProducesResponseType( 200)]
         public async Task<IActionResult> CreateGame(CreateRequest req)
         {
             var dto = new CreateGame()
@@ -32,31 +33,34 @@ namespace GameShelf.API.Endpoints.V1.Game
                 Year = req.Year
             };
             
-            await _gameService.CreateGame(dto);
+            await _gameService.CreateGameAsync(dto);
             
             return Ok();
         }
         
         [HttpGet]
         [Route("GetGames")]
+        [ProducesResponseType( 200)]
         public async Task<ActionResult<List<Domain.Models.Game>>> GetGames()
         {
-            return await _gameService.GetGames();
+            return await _gameService.GetGamesAsync();
         }
 
 
         [HttpPost]
         [Route("UpdateGame")]
-        public async Task<V1Response> DeleteGame(int id)
+        [ProducesResponseType(typeof(V1Response), 200)]
+        public async Task<IActionResult> DeleteGame(int id)
         {
-            var (success, message) = await _gameService.DeleteGame(id);
-
-            return new V1Response(success, message);
+            var (success, message) = await _gameService.DeleteGameAsync(id);
+            
+            return Ok(new V1Response(success, message));
         }
 
         [HttpPost]
         [Route("DeleteGame")]
-        public async Task<V1Response> UpdateGame(UpdateRequest req)
+        [ProducesResponseType(typeof(V1Response), 200)]
+        public async Task<IActionResult> UpdateGame(UpdateRequest req)
         {
             var dto = new UpdateGame()
             {
@@ -65,9 +69,9 @@ namespace GameShelf.API.Endpoints.V1.Game
                 Year = req.Year
             };
 
-            var (success, message) = await _gameService.UpdateGame(dto);
+            var (success, message) = await _gameService.UpdateGameAsync(dto);
 
-            return new V1Response(success, message);
+            return Ok(new V1Response(success, message));
         }
     }
 }

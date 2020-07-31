@@ -33,7 +33,7 @@ namespace GameShelf.API.Endpoints.V1.User
                 EmailAddress = req.EmailAddress
             };
             
-            await _userService.CreateUser(dto);
+            await _userService.CreateUserAsync(dto);
             
             return Ok();
         }
@@ -42,21 +42,23 @@ namespace GameShelf.API.Endpoints.V1.User
         [Route("GetUsers")]
         public async Task<ActionResult<List<Domain.Models.User>>> GetUsers()
         {
-            return await _userService.GetUsers();
+            return await _userService.GetUsersAsync();
         }
 
         [HttpPost]
         [Route("UpdateUser")]
-        public async Task<V1Response> DeleteUser(int id)
+        [ProducesResponseType(typeof(V1Response), 200)]
+        public async Task<IActionResult> DeleteUser(int id)
         {
-            var (success, message) = await _userService.DeleteUser(id);
+            var (success, message) = await _userService.DeleteUserAsync(id);
 
-            return new V1Response(success, message);
+            return Ok(new V1Response(success, message));
         }
 
         [HttpPost]
         [Route("DeleteUser")]
-        public async Task<V1Response> UpdateUser(UpdateRequest req)
+        [ProducesResponseType(typeof(V1Response), 200)]
+        public async Task<IActionResult> UpdateUser(UpdateRequest req)
         {
             var dto = new UpdateUser()
             {
@@ -66,9 +68,9 @@ namespace GameShelf.API.Endpoints.V1.User
                 EmailAddress = req.EmailAddress
             };
 
-            var (success, message) = await _userService.UpdateUser(dto);
+            var (success, message) = await _userService.UpdateUserAsync(dto);
 
-            return new V1Response(success, message);
+            return Ok(new V1Response(success, message));
         }
     }
 }
