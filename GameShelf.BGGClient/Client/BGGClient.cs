@@ -28,19 +28,18 @@ namespace GameShelf.BGGClient.Client
             
             var user = new User()
             {
-                // FirstName = xElement.Element("firstname").Attribute("value").Value,
-                Id = GetRootStringValue(xdoc.Root, "id"),
-                Username = username,
-                FirstName = GetElementStringValue(xdoc.Root, "firstname", "value"),
-                LastName = GetElementStringValue(xdoc.Root, "lastname", "value"),
-                Country = GetElementStringValue(xdoc.Root, "country", "value"),
-                AvatarLink = GetElementStringValue(xdoc.Root, "avatarlink", "value"),
+                Id = GetStringValue(xdoc.Root, "id"),
+                Username = GetStringValue(xdoc.Root, "name"),
+                FirstName = GetStringValue(xdoc.Root, "firstname", "value"),
+                LastName = GetStringValue(xdoc.Root, "lastname", "value"),
+                Country = GetStringValue(xdoc.Root, "country", "value"),
+                AvatarLink = GetStringValue(xdoc.Root, "avatarlink", "value"),
             };
 
             return user;
         }
 
-        private static string GetElementStringValue(XElement root, string element, string attribute = null)
+        private static string GetStringValue(XElement root, string element, string attribute = null)
         {
             if (root == null) 
                 return null;
@@ -54,17 +53,25 @@ namespace GameShelf.BGGClient.Client
             return root.Element(element).Attribute(attribute).Value;
         }
         
-        private static string GetRootStringValue(XElement root, string attribute = null)
+        private static string GetStringValue(XElement root, string attribute = null)
         {
             return root.Attribute(attribute).Value;
         }
         
         private async Task<XDocument> ReadData(Uri requestUrl)
         {
-            HttpResponseMessage httpResponse = await GetAsync(requestUrl);
-            var responseBody = await httpResponse.Content.ReadAsStringAsync();
-            var data = XDocument.Parse(responseBody);
-            return data;
+            var content = await GetXmlContentAsync(requestUrl);
+            var doc = XDocument.Parse(content);
+            
+            return doc;
+        }
+
+        private async Task<string> GetXmlContentAsync(Uri requestUrl)
+        {
+            var httpResponse = await GetAsync(requestUrl);
+            var content = await httpResponse.Content.ReadAsStringAsync();
+            
+            return content;
         }
 
         private async Task<HttpResponseMessage> GetAsync(Uri requestUrl)
@@ -77,13 +84,16 @@ namespace GameShelf.BGGClient.Client
                 {
                     httpResponse = await _httpClient.GetAsync(requestUrl);
 
-                    switch (httpResponse.StatusCode)
+                    if (httpResponse.StatusCode == HttpStatusCode.Accepted)
                     {
-                        case HttpStatusCode.OK:
-                            break;
-                        case HttpStatusCode.Accepted:
-                            retries--;
-                            continue;
+                        retries--;
+                        await Task.Delay(5000);
+                        continue;
+                    }
+                    
+                    if (httpResponse.StatusCode == HttpStatusCode.OK)
+                    {
+                        break;
                     }
                 }
                 catch (Exception ex)
@@ -94,20 +104,5 @@ namespace GameShelf.BGGClient.Client
 
             return httpResponse;
         }
-        
-        // private string GetStringValue(XElement element, string attribute = null, string defaultValue = "", string d = "")
-        // {
-        //     if (element == null)
-        //         return defaultValue;
-        //
-        //     if (attribute == null)
-        //         return element.Value;
-        //
-        //     XAttribute xatt = element.Attribute(attribute);
-        //     if (xatt == null)
-        //         return defaultValue;
-        //
-        //     return xatt.Value;
-        // }
     }
 }
