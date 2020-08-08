@@ -32,7 +32,6 @@ namespace GameShelf.API
                 {
                     document.Info.Version = "v1";
                     document.Info.Title = "GameShelf API";
-                    document.Info.Description = "A simple ASP.NET Core web API";
                     document.Info.Contact = new NSwag.OpenApiContact
                     {
                         Name = "Kurt Lim",
