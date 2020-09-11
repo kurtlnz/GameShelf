@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameShelf.Domain.Services.Game.DTO;
+using GameShelf.Domain.Dtos;
+using GameShelf.Domain.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameShelf.Domain.Services.Game
@@ -11,6 +13,21 @@ namespace GameShelf.Domain.Services.Game
         public GameService(DataContext db)
         {
             _db = db;
+        }
+        
+        public async Task<List<Models.Game>> GetGamesAsync()
+        {
+            return await _db.Games.ToListAsync();
+        }
+        
+        public async Task<Models.Game> GetGameAsync(Guid id)
+        {
+            var game = await _db.Games.SingleOrDefaultAsync(_ => _.Id == id);
+            
+            if (game == null)
+                throw new ObjectNotFoundException($"Could not find game with id '{id}'");
+            
+            return game;
         }
         
         public async Task CreateGameAsync(CreateGame dto)
@@ -25,34 +42,26 @@ namespace GameShelf.Domain.Services.Game
             await _db.SaveChangesAsync();
         }
         
-        public async Task<List<Models.Game>> GetGamesAsync()
-        {
-            return await _db.Games.ToListAsync();
-        }
-        
-        public async Task<(bool, string)> DeleteGameAsync(int id)
-        {
-            var game = await _db.Games.SingleOrDefaultAsync(_ => _.Id == id);
-            if (game == null)
-                return (false, "Game could not be found.");
-            
-            _db.Games.Remove(game);
-            await _db.SaveChangesAsync();
-
-            return (true, "");
-        }
-        
-        public async Task<(bool, string)> UpdateGameAsync(UpdateGame dto)
+        public async Task UpdateGameAsync(UpdateGame dto)
         {
             var game = await _db.Games.SingleOrDefaultAsync(_ => _.Id == dto.Id);
             if (game == null)
-                return (false, "Game could not be found.");
+                throw new ObjectNotFoundException($"Could not find game with id '{dto.Id}'");
             
             game.Title = dto.Title;
             game.Year = dto.Year;
             await _db.SaveChangesAsync();
+        }
+        
+        public async Task DeleteGameAsync(Guid id)
+        {
+            var game = await _db.Games.SingleOrDefaultAsync(_ => _.Id == id);
             
-            return (true, "");
+            if (game == null)
+                throw new ObjectNotFoundException($"Could not find game with id '{id}'");
+            
+            _db.Games.Remove(game);
+            await _db.SaveChangesAsync();
         }
         
     }

@@ -35,7 +35,7 @@ namespace GameShelf.API
                     document.Info.Contact = new NSwag.OpenApiContact
                     {
                         Name = "Kurt Lim",
-                        Email = "klim049@gamil.com",
+                        Email = "klim049@gmail.com",
                         Url = "https://github.com/kurtlnz"
                     };
                 };

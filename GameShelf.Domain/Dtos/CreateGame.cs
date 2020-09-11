@@ -1,6 +1,6 @@
-namespace GameShelf.API.Endpoints.V1.Game
+namespace GameShelf.Domain.Dtos
 {
-    public class CreateRequest
+    public class CreateGame
     {
         public string Title { get; set; }
         public string Year { get; set; }

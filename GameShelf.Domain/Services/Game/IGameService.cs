@@ -1,18 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameShelf.Domain.Services.Game.DTO;
+using GameShelf.Domain.Dtos;
 
 namespace GameShelf.Domain.Services.Game
 {
     public interface IGameService
     {
-        /// <summary>
-        /// Add a new game
-        /// </summary>
-        /// <param name="game"></param>
-        /// <returns></returns>
-        Task CreateGameAsync(CreateGame game);
-        
         /// <summary>
         /// Get list of all games
         /// </summary>
@@ -20,17 +14,31 @@ namespace GameShelf.Domain.Services.Game
         Task<List<Models.Game>> GetGamesAsync();
         
         /// <summary>
-        /// Delete game
+        /// Retrieve game from database
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        Task<(bool Success, string Message)> DeleteGameAsync(int id);
+        Task<Models.Game> GetGameAsync(Guid id);
+        
+        /// <summary>
+        /// Add a new game to the database
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        Task CreateGameAsync(CreateGame dto);
         
         /// <summary>
         /// Update game data
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        Task<(bool Success, string Message)> UpdateGameAsync(UpdateGame dto);
+        Task UpdateGameAsync(UpdateGame dto);
+        
+        /// <summary>
+        /// Delete game from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task DeleteGameAsync(Guid id);
+        
     }
 }
