@@ -1,26 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameShelf.Domain;
 using GameShelf.Domain.Dtos;
 using GameShelf.Domain.Services.Game;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace GameShelf.API.Endpoints.V1.Games
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class GamesController : Controller
+    public class GamesController : ControllerBase
     {
-        private readonly IGameService _gameService; 
-        private readonly DataContext _db;
+        private readonly IGameService _gameService;
+        private readonly ILogger<GamesController> _logger;
 
-        public GamesController(DataContext db,
-            IGameService gameService)
+        public GamesController(IGameService gameService, ILogger<GamesController> logger)
         {
             _gameService = gameService ?? throw new ArgumentNullException(nameof(GameService));
-            _db = db ?? throw new ArgumentNullException(nameof(DataContext));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
         
         // GET: /games
@@ -28,19 +27,37 @@ namespace GameShelf.API.Endpoints.V1.Games
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<ActionResult<List<Domain.Models.Game>>> GetGames()
         {
-            var result = await _gameService.GetGamesAsync();
-            
-            return Ok(result);
+            try
+            {
+                var result = await _gameService.GetGamesAsync();
+
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // GET: /games/{id}
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType( StatusCodes.Status200OK)]
-        public async Task<ActionResult<Domain.Models.Game>> GetGames(Guid id)
+        public async Task<ActionResult<Domain.Models.Game>> GetGame(Guid id)
         {
-            var result = await _gameService.GetGameAsync(id);
-            
-            return Ok(result);
+            try
+            {
+                var result = await _gameService.GetGameAsync(id);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // POST: /games
@@ -53,10 +70,19 @@ namespace GameShelf.API.Endpoints.V1.Games
             {
                 return BadRequest(ModelState);
             }
-            
-            await _gameService.CreateGameAsync(dto);
-            
-            return Ok();
+
+            try
+            {
+                await _gameService.CreateGameAsync(dto);
+                
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // PUT: /games/{id}
@@ -64,9 +90,18 @@ namespace GameShelf.API.Endpoints.V1.Games
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateGame(UpdateGame dto)
         {
-            await _gameService.UpdateGameAsync(dto);
+            try
+            {
+                await _gameService.UpdateGameAsync(dto);
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
 
         // DELETE: /games/{id}
@@ -74,9 +109,18 @@ namespace GameShelf.API.Endpoints.V1.Games
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteGame(Guid id)
         {
-            await _gameService.DeleteGameAsync(id);
-            
-            return Ok();
+            try
+            {
+                await _gameService.DeleteGameAsync(id);
+                
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
 
     }

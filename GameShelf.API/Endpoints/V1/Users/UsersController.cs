@@ -6,21 +6,21 @@ using GameShelf.Domain.Dtos;
 using GameShelf.Domain.Services.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace GameShelf.API.Endpoints.V1.User
 {
     [ApiController]
-    [Route("v1/[controller]")]
-    public class UserController : Controller
+    [Route("api/v1/[controller]")]
+    public class UserController : ControllerBase
     {
-        private readonly IUserService _userService; 
-        private readonly DataContext _db;
+        private readonly IUserService _userService;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(DataContext db,
-            IUserService userService)
+        public UserController(IUserService userService, ILogger<UserController> logger)
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(UserService));
-            _db = db ?? throw new ArgumentNullException(nameof(DataContext));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
         
         // GET: /users
@@ -28,19 +28,37 @@ namespace GameShelf.API.Endpoints.V1.User
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<ActionResult<List<Domain.Models.User>>> GetUsers()
         {
-            var result = await _userService.GetUsersAsync();
-            
-            return Ok(result);
+            try
+            {
+                var result = await _userService.GetUsersAsync();
+                
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // GET: /users/{id}
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<ActionResult<Domain.Models.User>> GetUser(Guid id)
         {
-            var result = await _userService.GetUserAsync(id);
-            
-            return Ok(result);
+            try
+            {
+                var result = await _userService.GetUserAsync(id);
+                
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // POST: /users
@@ -53,10 +71,19 @@ namespace GameShelf.API.Endpoints.V1.User
             {
                 return BadRequest(ModelState);
             }
-            
-            await _userService.CreateUserAsync(dto);
-            
-            return Ok();
+
+            try
+            {
+                await _userService.CreateUserAsync(dto);
+                
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
         
         // PUT: /users/{id}
@@ -64,9 +91,18 @@ namespace GameShelf.API.Endpoints.V1.User
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateUser(UpdateUser dto)
         {
-            await _userService.UpdateUserAsync(dto);
+            try
+            {
+                await _userService.UpdateUserAsync(dto);
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
 
         // DELETE: /users/{id}
@@ -74,9 +110,18 @@ namespace GameShelf.API.Endpoints.V1.User
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
-            await _userService.DeleteUserAsync(id);
-            
-            return Ok();
+            try
+            {
+                await _userService.DeleteUserAsync(id);
+                
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                
+                return StatusCode(500);
+            }
         }
     }
 }
