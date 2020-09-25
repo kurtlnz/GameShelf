@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.Domain", "GameShe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.BGGClient", "GameShelf.BGGClient\GameShelf.BGGClient.csproj", "{451922D6-625A-4FDB-B328-DA4281945611}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.Tests", "GameShelf.Tests\GameShelf.Tests.csproj", "{595B1E8E-0922-424B-8EFA-15A0D4F74E41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{451922D6-625A-4FDB-B328-DA4281945611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451922D6-625A-4FDB-B328-DA4281945611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451922D6-625A-4FDB-B328-DA4281945611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595B1E8E-0922-424B-8EFA-15A0D4F74E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595B1E8E-0922-424B-8EFA-15A0D4F74E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595B1E8E-0922-424B-8EFA-15A0D4F74E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595B1E8E-0922-424B-8EFA-15A0D4F74E41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
