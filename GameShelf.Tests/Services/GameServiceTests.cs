@@ -11,13 +11,13 @@ namespace GameShelf.Tests.Services
 {
     public class GameServiceTests
     {
-        private readonly GameService _serviceUnderTest;
+        private readonly GameService _sut;
         private readonly Mock<DataContext> _dataContextMock;
         
         public GameServiceTests()
         {
             _dataContextMock = new Mock<DataContext>();
-            _serviceUnderTest = new GameService(_dataContextMock.Object);
+            _sut = new GameService(_dataContextMock.Object);
         }
         
         [Fact]
@@ -27,7 +27,7 @@ namespace GameShelf.Tests.Services
             var gameId = Guid.NewGuid();
             
             // Act
-            var game = await _serviceUnderTest.GetGameAsync(gameId);
+            var game = await _sut.GetGameAsync(gameId);
 
             // Assert
             Assert.Equal(gameId, game.Id);
