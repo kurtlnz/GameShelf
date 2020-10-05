@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace GameShelf.BGGClient
@@ -14,10 +15,14 @@ namespace GameShelf.BGGClient
             var client = new Client.BGGClient();
             
             // Get User
-            await client.GetUserAsync("kurtlnz");
+            // await client.GetUserAsync("kurtlnz");
             
             // Search 
-            await client.SearchAsync("splendor");
+            var searchResult = await client.SearchAsync("splendor");
+            foreach (var item in searchResult.Items)
+            {
+                Console.WriteLine(item.Name);
+            }
         }
     }
 }

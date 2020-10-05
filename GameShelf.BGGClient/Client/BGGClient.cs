@@ -26,16 +26,16 @@ namespace GameShelf.BGGClient.Client
         {
             var uri = new Uri(BGG_XML_API2_URL + $"user?name={username}");
             
-            var data = await ReadData(uri);
+            var xDocument = await ReadData(uri);
             
             return new User
             {
-                Id = GetStringValue(data.Root, "id"),
-                Username = GetStringValue(data.Root, "name"),
-                FirstName = GetStringValue(data.Root, "firstname", "value"),
-                LastName = GetStringValue(data.Root, "lastname", "value"),
-                Country = GetStringValue(data.Root, "country", "value"),
-                AvatarLink = GetStringValue(data.Root, "avatarlink", "value"),
+                Id = GetStringValue(xDocument.Root, "id"),
+                Username = GetStringValue(xDocument.Root, "name"),
+                FirstName = GetStringValue(xDocument.Root, "firstname", "value"),
+                LastName = GetStringValue(xDocument.Root, "lastname", "value"),
+                Country = GetStringValue(xDocument.Root, "country", "value"),
+                AvatarLink = GetStringValue(xDocument.Root, "avatarlink", "value"),
             };
         }
         
@@ -43,11 +43,18 @@ namespace GameShelf.BGGClient.Client
         {
             var uri = new Uri(BGG_XML_API2_URL + $"search?query={value}");
             
-            var data = await ReadData(uri);
-
-            var items = new List<SearchItem>();
+            var xDocument = await ReadData(uri);
             
-            return new SearchResult();
+            IEnumerable<SearchItem> items = from searchItem in xDocument.Descendants("item") 
+                select new SearchItem
+                {
+                    Id = GetStringValue(searchItem, "id"),
+                    Type = GetStringValue(searchItem, "type"),
+                    Name = GetStringValue(searchItem, "name", "value"),
+                    YearPublished = GetStringValue(searchItem, "yearpublished", "value")
+                };
+
+            return new SearchResult { Items = items };
         }
         
         // public async Task<Collection> GetCollection(string username)
@@ -72,19 +79,13 @@ namespace GameShelf.BGGClient.Client
 
         private static string GetStringValue(XElement root, string element, string attribute = null)
         {
-            if (root == null) 
-                return null;
-
-            if (root.Element(element) == null)
-                return null;
-
-            if (attribute == null)
+            if (root?.Element(element) == null || attribute == null)
                 return null;
             
             return root.Element(element).Attribute(attribute).Value;
         }
         
-        private static string GetStringValue(XElement root, string attribute = null)
+        private static string GetStringValue(XElement root, string attribute)
         {
             return root.Attribute(attribute).Value;
         }
