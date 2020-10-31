@@ -4,11 +4,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace GameShelf.Domain
 {
-    public class DataContext : DbContext
+    public class GameShelfContext : DbContext
     {
         public IConfiguration Configuration { get; }
         
-        public DataContext(DbContextOptions<DataContext> options,IConfiguration configuration) 
+        public GameShelfContext(DbContextOptions options, IConfiguration configuration) 
             : base(options)
         {
             Configuration = configuration;

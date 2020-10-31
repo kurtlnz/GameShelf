@@ -9,8 +9,8 @@ namespace GameShelf.Domain.Services.Game
 {
     public class GameService : IGameService
     {
-        private readonly DataContext _db;
-        public GameService(DataContext db)
+        private readonly GameShelfContext _db;
+        public GameService(GameShelfContext db)
         {
             _db = db;
         }
@@ -45,6 +45,7 @@ namespace GameShelf.Domain.Services.Game
         public async Task UpdateGameAsync(UpdateGame dto)
         {
             var game = await _db.Games.SingleOrDefaultAsync(_ => _.Id == dto.Id);
+            
             if (game == null)
                 throw new ObjectNotFoundException($"Could not find game with id '{dto.Id}'");
             

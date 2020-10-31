@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GameShelf.Domain.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(GameShelfContext))]
     [Migration("20200620020123_AddGameUsersRelationship")]
     partial class AddGameUsersRelationship
     {
