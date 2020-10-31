@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Commands.Games
 
     public class AddGameCommand : IAddGameCommand
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<AddGameCommand> _logger;
 
-        public AddGameCommand(DataContext context, ILogger<AddGameCommand> logger)
+        public AddGameCommand(GameShelfContext context, ILogger<AddGameCommand> logger)
         {
             _context = context;
             _logger = logger;

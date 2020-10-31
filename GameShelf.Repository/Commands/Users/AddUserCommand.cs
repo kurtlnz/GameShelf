@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Commands.Users
 
     public class AddUserCommand : IAddUserCommand
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<AddUserCommand> _logger;
 
-        public AddUserCommand(DataContext context, ILogger<AddUserCommand> logger)
+        public AddUserCommand(GameShelfContext context, ILogger<AddUserCommand> logger)
         {
             _context = context;
             _logger = logger;

@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Commands.Games
 
     public class DeleteGameCommand : IDeleteGameCommand
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<DeleteGameCommand> _logger;
 
-        public DeleteGameCommand(DataContext context, ILogger<DeleteGameCommand> logger)
+        public DeleteGameCommand(GameShelfContext context, ILogger<DeleteGameCommand> logger)
         {
             _context = context;
             _logger = logger;

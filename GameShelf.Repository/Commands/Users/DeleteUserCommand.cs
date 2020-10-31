@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Commands.Users
 
     public class DeleteUserCommand : IDeleteUserCommand
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<DeleteUserCommand> _logger;
 
-        public DeleteUserCommand(DataContext context, ILogger<DeleteUserCommand> logger)
+        public DeleteUserCommand(GameShelfContext context, ILogger<DeleteUserCommand> logger)
         {
             _context = context;
             _logger = logger;

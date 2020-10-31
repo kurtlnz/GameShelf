@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Commands.Users
 
     public class UpdateUserCommand : IUpdateUserCommand
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<UpdateUserCommand> _logger;
 
-        public UpdateUserCommand(DataContext context, ILogger<UpdateUserCommand> logger)
+        public UpdateUserCommand(GameShelfContext context, ILogger<UpdateUserCommand> logger)
         {
             _context = context;
             _logger = logger;

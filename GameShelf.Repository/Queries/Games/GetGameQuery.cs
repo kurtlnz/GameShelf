@@ -14,10 +14,10 @@ namespace GameShelf.Repository.Queries.Games
 
     public class GetGameQuery : IGetGameQuery
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<GetGameQuery> _logger;
 
-        public GetGameQuery(DataContext context, ILogger<GetGameQuery> logger)
+        public GetGameQuery(GameShelfContext context, ILogger<GetGameQuery> logger)
         {
             _context = context;
             _logger = logger;

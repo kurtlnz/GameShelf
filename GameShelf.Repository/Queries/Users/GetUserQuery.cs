@@ -13,10 +13,10 @@ namespace GameShelf.Repository.Queries.Users
 
     public class GetUserQuery : IGetUserQuery
     {
-        private readonly DataContext _context;
+        private readonly GameShelfContext _context;
         private readonly ILogger<GetUserQuery> _logger;
 
-        public GetUserQuery(DataContext context, ILogger<GetUserQuery> logger)
+        public GetUserQuery(GameShelfContext context, ILogger<GetUserQuery> logger)
         {
             _context = context;
             _logger = logger;
