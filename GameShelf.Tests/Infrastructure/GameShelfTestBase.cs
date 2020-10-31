@@ -6,15 +6,15 @@ namespace GameShelf.Tests.Infrastructure
 {
     public class GameShelfTestBase : IDisposable
     {
-        protected readonly DataContext _context;
+        protected readonly GameShelfContext _context;
 
-        public GameShelfTestBase()
+        protected GameShelfTestBase()
         {
-            var options = new DbContextOptionsBuilder<DataContext>()
+            var options = new DbContextOptionsBuilder<GameShelfContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
             
-            _context = new DataContext(options, null);
+            _context = new GameShelfContext(options, null);
 
             _context.Database.EnsureCreated();
             

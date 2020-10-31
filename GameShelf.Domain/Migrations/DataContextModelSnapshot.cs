@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GameShelf.Domain.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(GameShelfContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

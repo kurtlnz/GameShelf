@@ -44,7 +44,7 @@ namespace GameShelf.API
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IUserService, UserService>();
             
-            services.AddDbContext<DataContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("(default)")));
+            services.AddDbContext<GameShelfContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("(default)")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

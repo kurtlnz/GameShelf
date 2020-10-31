@@ -9,8 +9,8 @@ namespace GameShelf.Domain.Services.User
 {
     public class UserService : IUserService
     {
-        private readonly DataContext _db;
-        public UserService(DataContext db)
+        private readonly GameShelfContext _db;
+        public UserService(GameShelfContext db)
         {
             _db = db;
         }

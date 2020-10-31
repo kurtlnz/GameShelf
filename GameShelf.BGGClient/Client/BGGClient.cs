@@ -13,7 +13,7 @@ namespace GameShelf.BGGClient.Client
 {
     public class BGGClient
     {
-        private const string BGG_XML_API2_URL = "https://www.boardgamegeek.com/xmlapi2/";
+        private const string BGG_XML_API2_BASE_URL = "https://www.boardgamegeek.com/xmlapi2/";
         
         private readonly HttpClient _httpClient;
         
@@ -24,7 +24,7 @@ namespace GameShelf.BGGClient.Client
         
         public async Task<User> GetUserAsync(string username)
         {
-            var uri = new Uri(BGG_XML_API2_URL + $"user?name={username}");
+            var uri = new Uri(BGG_XML_API2_BASE_URL + $"user?name={username}");
             
             var xDocument = await ReadData(uri);
             
@@ -41,7 +41,7 @@ namespace GameShelf.BGGClient.Client
         
         public async Task<SearchResult> SearchAsync(string value)
         {
-            var uri = new Uri(BGG_XML_API2_URL + $"search?query={value}");
+            var uri = new Uri(BGG_XML_API2_BASE_URL + $"search?query={value}");
             
             var xDocument = await ReadData(uri);
             

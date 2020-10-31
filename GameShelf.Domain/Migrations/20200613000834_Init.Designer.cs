@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GameShelf.Domain.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(GameShelfContext))]
     [Migration("20200613000834_Init")]
     partial class Init
     {

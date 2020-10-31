@@ -7,7 +7,7 @@ namespace GameShelf.Tests.Infrastructure
 {
     public class GameShelfInitializer
     {
-        public static void Initialize(DataContext context)
+        public static void Initialize(GameShelfContext context)
         {
             if (context.Games.Any())
             {
@@ -17,7 +17,7 @@ namespace GameShelf.Tests.Infrastructure
             Seed(context);
         }
 
-        private static void Seed(DataContext context)
+        private static void Seed(GameShelfContext context)
         {
             var games = new[]
             {
