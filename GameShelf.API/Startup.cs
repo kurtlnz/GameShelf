@@ -1,9 +1,14 @@
 using GameShelf.Domain;
 using GameShelf.Domain.Services.Game;
 using GameShelf.Domain.Services.User;
+using GameShelf.Repository.Commands.Games;
+using GameShelf.Repository.Commands.Users;
+using GameShelf.Repository.Queries.Games;
+using GameShelf.Repository.Queries.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -41,10 +46,13 @@ namespace GameShelf.API
                 };
             });
 
-            services.AddScoped<IGameService, GameService>();
-            services.AddScoped<IUserService, UserService>();
+            // Register dependencies
+            RegisterServices(services);
+            RegisterCommands(services);
+            RegisterQueries(services);
             
-            services.AddDbContext<GameShelfContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("(default)")));
+            services.AddDbContext<GameShelfContext>(opt => opt
+                .UseNpgsql(Configuration.GetConnectionString("(default)")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +74,36 @@ namespace GameShelf.API
             // Register the Swagger generator and the Swagger UI middlewares
             app.UseOpenApi();
             app.UseSwaggerUi3();
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IUserService, UserService>();
+        }
+
+        private static void RegisterCommands(IServiceCollection services)
+        {
+            // Games
+            services.AddTransient<IAddGameCommand, AddGameCommand>();
+            services.AddTransient<IDeleteGameCommand, DeleteGameCommand>();
+            services.AddTransient<IUpdateGameCommand, UpdateGameCommand>();
+            
+            // Users
+            services.AddTransient<IAddUserCommand, AddUserCommand>();
+            services.AddTransient<IDeleteUserCommand, DeleteUserCommand>();
+            services.AddTransient<IUpdateUserCommand, UpdateUserCommand>();
+        }
+
+        private static void RegisterQueries(IServiceCollection services)
+        {
+            // Games
+            services.AddTransient<IGetGameQuery, GetGameQuery>();
+            services.AddTransient<IGetAllGamesQuery, GetAllGamesQuery>();
+            
+            // Users
+            services.AddTransient<IGetUserQuery, GetUserQuery>();
+            services.AddTransient<IGetAllUsersQuery, GetAllUsersQuery>();
         }
     }
 }
