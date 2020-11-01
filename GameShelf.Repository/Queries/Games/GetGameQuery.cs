@@ -9,7 +9,7 @@ namespace GameShelf.Repository.Queries.Games
 {
     public interface IGetGameQuery
     {
-        Task<Result> Execute(Guid id);
+        Task<Result<Game>> Execute(Guid id);
     }
 
     public class GetGameQuery : IGetGameQuery
@@ -23,7 +23,7 @@ namespace GameShelf.Repository.Queries.Games
             _logger = logger;
         }
 
-        public async Task<Result> Execute(Guid id)
+        public async Task<Result<Game>> Execute(Guid id)
         {
             var result = new Result<Game>();
             try

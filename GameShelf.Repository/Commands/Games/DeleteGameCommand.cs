@@ -8,7 +8,7 @@ namespace GameShelf.Repository.Commands.Games
 {
     public interface IDeleteGameCommand
     {
-        Task<Result> Execute(Game game);
+        Task<Result> Execute(Guid id);
     }
 
     public class DeleteGameCommand : IDeleteGameCommand
@@ -22,9 +22,11 @@ namespace GameShelf.Repository.Commands.Games
             _logger = logger;
         }
 
-        public async Task<Result> Execute(Game game)
+        public async Task<Result> Execute(Guid id)
         {
             Result result = new Result();
+            var game = new Game { Id = id };
+            
             try
             {
                 _context.Games.Remove(game);

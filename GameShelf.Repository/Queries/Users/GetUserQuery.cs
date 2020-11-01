@@ -8,7 +8,7 @@ namespace GameShelf.Repository.Queries.Users
 {
     public interface IGetUserQuery
     {
-        Task<Result> Execute(Guid id);
+        Task<Result<User>> Execute(Guid id);
     }
 
     public class GetUserQuery : IGetUserQuery
@@ -22,7 +22,7 @@ namespace GameShelf.Repository.Queries.Users
             _logger = logger;
         }
 
-        public async Task<Result> Execute(Guid id)
+        public async Task<Result<User>> Execute(Guid id)
         {
             var result = new Result<User>();
             try

@@ -8,7 +8,7 @@ namespace GameShelf.Repository.Commands.Users
 {
     public interface IDeleteUserCommand
     {
-        Task<Result> Execute(User user);
+        Task<Result> Execute(Guid id);
     }
 
     public class DeleteUserCommand : IDeleteUserCommand
@@ -22,9 +22,10 @@ namespace GameShelf.Repository.Commands.Users
             _logger = logger;
         }
 
-        public async Task<Result> Execute(User user)
+        public async Task<Result> Execute(Guid id)
         {
             Result result = new Result();
+            var user = new User{ Id = id };
             try
             {
                 _context.Users.Remove(user);

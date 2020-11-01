@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GameShelf.Domain\GameShelf.Domain.csproj" />
+      <ProjectReference Include="..\GameShelf.Repository\GameShelf.Repository.csproj" />
+    </ItemGroup>
+
+</Project>

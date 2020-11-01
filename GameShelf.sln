@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.Tests", "GameShel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.Repository", "GameShelf.Repository\GameShelf.Repository.csproj", "{527FC16B-A859-4558-9858-92077F6EA317}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShelf.Services", "GameShelf.Services\GameShelf.Services.csproj", "{559CE73D-3619-4B30-861F-5F606BCBD725}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{527FC16B-A859-4558-9858-92077F6EA317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{527FC16B-A859-4558-9858-92077F6EA317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{527FC16B-A859-4558-9858-92077F6EA317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559CE73D-3619-4B30-861F-5F606BCBD725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559CE73D-3619-4B30-861F-5F606BCBD725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559CE73D-3619-4B30-861F-5F606BCBD725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559CE73D-3619-4B30-861F-5F606BCBD725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
