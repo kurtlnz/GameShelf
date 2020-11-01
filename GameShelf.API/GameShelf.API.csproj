@@ -7,9 +7,12 @@
     <ItemGroup>
       <ProjectReference Include="..\GameShelf.Domain\GameShelf.Domain.csproj" />
       <ProjectReference Include="..\GameShelf.Repository\GameShelf.Repository.csproj" />
+      <ProjectReference Include="..\GameShelf.Services\GameShelf.Services.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="10.1.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
       <PackageReference Include="NSwag.AspNetCore" Version="13.6.2" />
     </ItemGroup>
 

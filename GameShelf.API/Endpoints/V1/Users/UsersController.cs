@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameShelf.Domain;
+using AutoMapper;
 using GameShelf.Domain.Dtos;
-using GameShelf.Domain.Services.User;
+using GameShelf.Services.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,17 +16,19 @@ namespace GameShelf.API.Endpoints.V1.User
     {
         private readonly IUserService _userService;
         private readonly ILogger<UserController> _logger;
+        private readonly IMapper _mapper;
 
-        public UserController(IUserService userService, ILogger<UserController> logger)
+        public UserController(IUserService userService, ILogger<UserController> logger, IMapper mapper)
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(UserService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
         
         // GET: /users
         [HttpGet]
         [ProducesResponseType( StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<Domain.Models.User>>> GetUsers()
+        public async Task<ActionResult> GetUsers()
         {
             try
             {
@@ -45,7 +47,7 @@ namespace GameShelf.API.Endpoints.V1.User
         // GET: /users/{id}
         [HttpGet("{id}")]
         [ProducesResponseType( StatusCodes.Status200OK)]
-        public async Task<ActionResult<Domain.Models.User>> GetUser(Guid id)
+        public async Task<ActionResult> GetUser(Guid id)
         {
             try
             {
@@ -74,9 +76,11 @@ namespace GameShelf.API.Endpoints.V1.User
 
             try
             {
-                await _userService.CreateUserAsync(dto);
+                var user = _mapper.Map<Domain.Models.User>(dto);
                 
-                return Ok();
+                var result = await _userService.CreateUserAsync(user);
+                
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -91,11 +95,18 @@ namespace GameShelf.API.Endpoints.V1.User
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateUser(UpdateUser dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             try
             {
-                await _userService.UpdateUserAsync(dto);
+                var user = _mapper.Map<Domain.Models.User>(dto);
+                
+                var result = await _userService.UpdateUserAsync(user);
 
-                return Ok();
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -112,9 +123,9 @@ namespace GameShelf.API.Endpoints.V1.User
         {
             try
             {
-                await _userService.DeleteUserAsync(id);
+                var result = await _userService.DeleteUserAsync(id);
                 
-                return Ok();
+                return Ok(result);
             }
             catch (Exception ex)
             {

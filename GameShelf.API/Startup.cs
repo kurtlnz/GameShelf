@@ -1,14 +1,14 @@
+using AutoMapper;
 using GameShelf.Domain;
-using GameShelf.Domain.Services.Game;
-using GameShelf.Domain.Services.User;
 using GameShelf.Repository.Commands.Games;
 using GameShelf.Repository.Commands.Users;
 using GameShelf.Repository.Queries.Games;
 using GameShelf.Repository.Queries.Users;
+using GameShelf.Services.Game;
+using GameShelf.Services.User;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -50,6 +50,8 @@ namespace GameShelf.API
             RegisterServices(services);
             RegisterCommands(services);
             RegisterQueries(services);
+            
+            services.AddAutoMapper(typeof(Startup));
             
             services.AddDbContext<GameShelfContext>(opt => opt
                 .UseNpgsql(Configuration.GetConnectionString("(default)")));

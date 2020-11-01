@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using GameShelf.Domain.Dtos;
-using GameShelf.Domain.Services.Game;
+using GameShelf.Domain.Models;
+using GameShelf.Services.Game;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,17 +17,19 @@ namespace GameShelf.API.Endpoints.V1.Games
     {
         private readonly IGameService _gameService;
         private readonly ILogger<GamesController> _logger;
+        private readonly IMapper _mapper;
 
-        public GamesController(IGameService gameService, ILogger<GamesController> logger)
+        public GamesController(IGameService gameService, ILogger<GamesController> logger, IMapper mapper)
         {
             _gameService = gameService ?? throw new ArgumentNullException(nameof(GameService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
         
         // GET: /games
         [HttpGet]
         [ProducesResponseType( StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<Domain.Models.Game>>> GetGames()
+        public async Task<ActionResult> GetGames()
         {
             try
             {
@@ -44,7 +48,7 @@ namespace GameShelf.API.Endpoints.V1.Games
         // GET: /games/{id}
         [HttpGet("{id}")]
         [ProducesResponseType( StatusCodes.Status200OK)]
-        public async Task<ActionResult<Domain.Models.Game>> GetGame(Guid id)
+        public async Task<ActionResult> GetGame(Guid id)
         {
             try
             {
@@ -73,9 +77,11 @@ namespace GameShelf.API.Endpoints.V1.Games
 
             try
             {
-                await _gameService.CreateGameAsync(dto);
+                var game = _mapper.Map<Game>(dto);
                 
-                return Ok();
+                var result = await _gameService.CreateGameAsync(game);
+                
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -90,11 +96,18 @@ namespace GameShelf.API.Endpoints.V1.Games
         [ProducesResponseType( StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateGame(UpdateGame dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
-                await _gameService.UpdateGameAsync(dto);
+                var game = _mapper.Map<Game>(dto);
+                
+                var result = await _gameService.UpdateGameAsync(game);
 
-                return Ok();
+                return Ok(result);
             }
             catch (Exception ex)
             {
