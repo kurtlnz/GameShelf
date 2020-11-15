@@ -1,20 +1,16 @@
 using System;
 using System.Threading.Tasks;
-using Castle.Core.Logging;
-using GameShelf.Domain;
 using GameShelf.Domain.Exceptions;
-using GameShelf.Domain.Services.Game;
+using GameShelf.Services.Game;
 using GameShelf.Tests.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
-using Xunit;
+using NUnit.Framework;
 
 namespace GameShelf.Tests.Services
 {
+    [TestFixture]
     public class GameServiceTests : GameShelfTestBase
     {
-        [Fact]
+        [Test]
         public async Task GetGamesAsync_ShouldReturnListOfGames_WhereGamesExist()
         {
             // Arrange
@@ -27,7 +23,7 @@ namespace GameShelf.Tests.Services
             Assert.Equal(3 , games.Count);
         }
         
-        [Fact]
+        [Test]
         public async Task GetGameAsync_ShouldReturnGame_WhereGameExists()
         {
             // Arrange
@@ -41,7 +37,7 @@ namespace GameShelf.Tests.Services
             Assert.Equal(id, game.Id);
         }
         
-        [Fact]
+        [Test]
         public async Task GetGameAsync_ShouldThrowError_WhereGameDoesNotExist()
         {
             var service = new GameService(_context);
