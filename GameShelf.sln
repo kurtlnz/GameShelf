@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7CDA66A1-F9A5-4B2D-B721-050826D3843F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{13E0C3A5-B1AD-493D-9140-DE4191A9A257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game.WebApi", "Game.WebApi\Game.WebApi.csproj", "{6FB5AFC8-E79B-4B93-800F-2884461664EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B9B7502B-D541-4714-986B-07A3CCA4AA22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FB5AFC8-E79B-4B93-800F-2884461664EE} = {13E0C3A5-B1AD-493D-9140-DE4191A9A257}
+		{B9B7502B-D541-4714-986B-07A3CCA4AA22} = {7CDA66A1-F9A5-4B2D-B721-050826D3843F}
+		{13E0C3A5-B1AD-493D-9140-DE4191A9A257} = {B9B7502B-D541-4714-986B-07A3CCA4AA22}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FB5AFC8-E79B-4B93-800F-2884461664EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB5AFC8-E79B-4B93-800F-2884461664EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB5AFC8-E79B-4B93-800F-2884461664EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB5AFC8-E79B-4B93-800F-2884461664EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
