@@ -1,13 +1,25 @@
+using System;
+using System.Threading.Tasks;
+using Game.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Game.WebApi.Controllers
+namespace Game.API.Controllers
 {
-    public class GamesController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class GamesController : ControllerBase
     {
-        // GET
-        public IActionResult Index()
+        private readonly IGameService _gameService;
+        public GamesController(IGameService gameService)
         {
-            return View();
+            _gameService = gameService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _gameService.GetAllGames();
+            return Ok(result);
         }
     }
 }
