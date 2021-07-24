@@ -23,7 +23,7 @@ namespace Game.API.Controllers
             switch (exception)
             {
                 default:
-                    _logger.LogError(exception, $"Unhandled excddeption ({exception.GetType().FullName}) was raised");
+                    _logger.LogError(exception, $"Unhandled exception ({exception.GetType().FullName}) was raised");
                     return Problem(exception.Message);
             }
         }
