@@ -7,6 +7,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game.API", "src\Services\Game.API\Game.API.csproj", "{AF0B3F1E-AE6F-44CA-A8BB-F1CC69F2B33A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{364701EB-483D-4D40-9B57-C2FA886C6601}"
+ProjectSection(SolutionItems) = preProject
+	src\Services\Game\Dockerfile = src\Services\Game\Dockerfile
+EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game.API.UnitTests", "src\Services\Game\Game.API.UnitTests\Game.API.UnitTests.csproj", "{BBA995CD-03FE-41CB-9733-7CD4F950AD22}"
 EndProject
