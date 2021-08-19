@@ -1,7 +1,4 @@
 containers:  
-  my-container:    
-    image: alpine:3.11.3
-  
   game-api:
     image: kurtlnz/gameshelfapi
     ports:
@@ -9,12 +6,6 @@ containers:
         container: 80
     
 tasks:  
-  say-hello:    
-    description: Say hello to the nice person reading the Batect documentation    
-    run:      
-      container: my-container      
-      command: echo 'Hello world!'
-      
   runApp:
     description: Run the games api
     run:

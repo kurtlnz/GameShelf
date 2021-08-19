@@ -27,7 +27,7 @@ namespace Game.API.UnitTests.Services
             };
             
             // Act
-            var result = await _service.GetAllGames();
+            var result = await _service.GetAllGamesAsync();
 
             // Assert
             result.Should().BeEquivalentTo(games);

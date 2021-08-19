@@ -32,7 +32,7 @@ namespace Game.API.UnitTests.Controllers
             };
             
             _mockGameService
-                .Setup(g => g.GetAllGames())
+                .Setup(g => g.GetAllGamesAsync())
                 .ReturnsAsync(gamesList);
             
             // Act
